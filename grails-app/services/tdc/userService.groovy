@@ -1,12 +1,14 @@
 package tdc
 
+import com.google.gson.Gson
+
 class userService {
 
     def users = [:]
 
     def addUser(user) {
 
-        users[user["username"]] = user
+        users[user["userName"]] = new Gson().fromJson(user.toString(), User.class)
     }
 
     def getUsers() {
