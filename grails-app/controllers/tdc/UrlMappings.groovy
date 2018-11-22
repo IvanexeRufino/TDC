@@ -9,6 +9,9 @@ class UrlMappings {
             }
         }
 
+        "/login"(controller: 'user') {
+            action = [POST: 'login']
+        }
 
         "/usuario"(controller: 'user') {
             action = [POST: 'add', GET: 'list']

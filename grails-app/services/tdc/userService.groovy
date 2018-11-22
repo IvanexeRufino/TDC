@@ -24,4 +24,14 @@ class userService {
         users["abc"] = new User("abc", "abc", "juan", "perez")
         users["soso123"] = new User("meme123", "admin", "roberto", "perez")
     }
+
+    def validateLogin(user) {
+        if(users.containsKey(user.userName)) {
+            if(users[user.userName].password == user.password) {
+                return true
+            }
+        }
+
+        return false
+    }
 }

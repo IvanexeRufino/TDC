@@ -44,4 +44,21 @@ class userController {
 
         respond userService.get(userName).toJson(), formats: ['json']
     }
+
+    def login() {
+
+        def map = [:]
+        def user = request.JSON
+
+        def valid = userService.validateLogin(user)
+
+        if (valid) {
+            map = [status: 200, message: "Authenticated"]
+            respond map, formats: ['json']
+
+        } else {
+            map = [status: 400, message: "Not authenticated"]
+            respond map, formats: ['json']
+        }
+    }
 }
