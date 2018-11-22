@@ -13,7 +13,10 @@ class userController {
     def initialData() {
 
         userService.loadInitialData()
-        render "i've loaded data succesfuly"
+
+        def map = [status: 200, message: "Good job"]
+
+        respond map, formats: ['json']
     }
 
     def add() {
@@ -22,7 +25,9 @@ class userController {
 
         userService.addUser(user)
 
-        render "Good job"
+        def map = [status: 200, message: "Good job"]
+
+        respond map, formats: ['json']
 
     }
 
