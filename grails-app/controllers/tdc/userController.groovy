@@ -1,6 +1,8 @@
 package tdc
 
 import com.google.gson.Gson
+import grails.converters.JSON
+import org.grails.web.json.JSONArray
 
 class userController {
 
@@ -11,7 +13,7 @@ class userController {
     def initialData() {
 
         userService.loadInitialData()
-        [data: "i've loaded some users for you to test"]
+        render "i've loaded data succesfuly"
     }
 
     def add() {
@@ -20,18 +22,25 @@ class userController {
 
         userService.addUser(user)
 
-        [data: "good job"]
+        render(contentType: "text/json"){
+            [data: "good job"]
+        }
 
     }
 
     def list() {
-        [data: new Gson().toJson(userService.getUsers())]
+
+        def listJson = userService.getUsers().stream().map({user -> new Gson().toJson(user)}).collect()
+
+        render listJson as JSON
     }
 
     def getUser() {
 
         def userName = params.get("userName")
 
-        [data: new Gson().toJson(userService.get(userName))]
+        render(contentType: "text/json") {
+            userService.get(userName)
+        }
     }
 }
