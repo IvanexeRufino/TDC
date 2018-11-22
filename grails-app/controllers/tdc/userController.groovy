@@ -22,25 +22,21 @@ class userController {
 
         userService.addUser(user)
 
-        render(contentType: "text/json"){
-            [data: "good job"]
-        }
+        render "Good job"
 
     }
 
     def list() {
 
-        def listJson = userService.getUsers().stream().map({user -> new Gson().toJson(user)}).collect()
+        def listJson = userService.getUsers().stream().map({user -> user.toJson()}).collect()
 
-        render listJson as JSON
+        respond listJson, formats: ['json']
     }
 
     def getUser() {
 
         def userName = params.get("userName")
 
-        render(contentType: "text/json") {
-            userService.get(userName)
-        }
+        respond userService.get(userName).toJson(), formats: ['json']
     }
 }

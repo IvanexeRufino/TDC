@@ -16,4 +16,8 @@ class User {
         this.firstName = firstName
         this.lastName = lastName
     }
+
+    def toJson() {
+        ["userName": this.userName, "password": this.password, "firstName": this.firstName, "lastName": this.lastName]
+    }
 }
