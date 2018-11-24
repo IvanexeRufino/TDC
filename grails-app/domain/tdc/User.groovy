@@ -9,17 +9,19 @@ class User {
     private password
     private firstName
     private lastName
+    private position
     private profilePicture
 
-    User(userName, password, firstName, lastName, profilePicture) {
+    User(userName, password, firstName, lastName, position, profilePicture) {
         this.userName = userName
         this.password = password
         this.firstName = firstName
         this.lastName = lastName
+        this.position = position
         this.profilePicture = profilePicture
     }
 
     def toJson() {
-        ["userName": this.userName, "password": this.password, "firstName": this.firstName, "lastName": this.lastName, "profilePicture": this.profilePicture]
+        ["userName": this.userName, "password": this.password, "firstName": this.firstName, "lastName": this.lastName, "position": [latitude: this.position.latitude, longitude: this.position.longitude], "profilePicture": this.profilePicture]
     }
 }
