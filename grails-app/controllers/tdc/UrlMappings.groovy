@@ -14,7 +14,7 @@ class UrlMappings {
         }
 
         "/usuario"(controller: 'user') {
-            action = [POST: 'add', GET: 'list']
+            action = [POST: 'add', GET: 'list', PUT: 'modify']
         }
 
         "/usuario/$userName"(controller: 'user') {

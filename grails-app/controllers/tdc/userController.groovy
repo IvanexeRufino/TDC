@@ -31,6 +31,19 @@ class userController {
 
     }
 
+    def modify() {
+
+        def user = request.JSON
+
+        userService.modifyUser(user)
+
+        def map = [status: 200, message: "Good job"]
+
+        respond map, formats: ['json']
+
+
+    }
+
     def list() {
 
         def listJson = userService.getUsers().stream().map({user -> user.toJson()}).collect()

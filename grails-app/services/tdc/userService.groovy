@@ -19,6 +19,14 @@ class userService {
         users[userName]
     }
 
+    def modifyUser(user) {
+        def userToModify = users[user.userName]
+        userToModify.firstName = user.firstName
+        userToModify.lastName = user.lastName
+        users[user.userName] = userToModify
+
+    }
+
     def loadInitialData() {
         users["admin"] = new User("admin", "admin", "roberto", "perez")
         users["abc"] = new User("abc", "abc", "juan", "perez")
