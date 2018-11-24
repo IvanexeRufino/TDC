@@ -22,6 +22,6 @@ class User {
     }
 
     def toJson() {
-        ["userName": this.userName, "password": this.password, "firstName": this.firstName, "lastName": this.lastName, "position": [latitude: this.position.latitude, longitude: this.position.longitude], "profilePicture": this.profilePicture]
+        ["userName": this.userName, "password": this.password, "firstName": this.firstName, "lastName": this.lastName, "position": [latitude: this.position?.latitude, longitude: this.position?.longitude], "profilePicture": this.profilePicture]
     }
 }
