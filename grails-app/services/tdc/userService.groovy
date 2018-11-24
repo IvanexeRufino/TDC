@@ -34,4 +34,16 @@ class userService {
 
         return false
     }
+
+    def updatePassword(userData) {
+
+        if(users.containsKey(userData.userName)) {
+            if(users[userData.userName].password == userData.oldPassword) {
+                users[userData.userName].password = userData.newPassword
+                return true
+            }
+        }
+
+        return false
+    }
 }

@@ -25,6 +25,10 @@ class UrlMappings {
             action = [GET: 'initialData']
         }
 
+        "/updatePassword"(controller: 'user') {
+            action = [PUT: 'updatePassword']
+        }
+
         "/"(view:"/index")
         "500"(view:'/error')
         "404"(view:'/notFound')

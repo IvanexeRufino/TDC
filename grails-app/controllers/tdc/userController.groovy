@@ -47,9 +47,8 @@ class userController {
 
     def login() {
 
-        def map = [:]
+        def map
         def user = request.JSON
-
         def valid = userService.validateLogin(user)
 
         if (valid) {
@@ -60,5 +59,23 @@ class userController {
             map = [status: 400, message: "Not authenticated"]
             respond map, formats: ['json']
         }
+    }
+
+    def updatePassword() {
+
+        def map
+        def userData = request.JSON
+        def valid = userService.updatePassword(userData)
+
+        if (valid) {
+            map = [status: 200, message: "Succesfuly changed"]
+            respond map, formats: ['json']
+
+        } else {
+            map = [status: 400, message: "Wron password"]
+            respond map, formats: ['json']
+        }
+
+
     }
 }
