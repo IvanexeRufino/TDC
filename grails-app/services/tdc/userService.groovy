@@ -8,7 +8,12 @@ class userService {
 
     def addUser(user) {
 
-        users[user["userName"]] = new Gson().fromJson(user.toString(), User.class)
+        if(!users.containsKey(user.userName)) {
+            users[user["userName"]] = new Gson().fromJson(user.toString(), User.class)
+            return true
+        }
+
+        return false
     }
 
     def getUsers() {

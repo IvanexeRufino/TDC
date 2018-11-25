@@ -21,11 +21,16 @@ class userController {
 
     def add() {
 
+        def map
         def user = request.JSON
 
-        userService.addUser(user)
+        def valid = userService.addUser(user)
 
-        def map = [status: 200, message: "Good job"]
+        if (valid) {
+            map = [status: 200, message: "Good job"]
+        } else {
+            map = [status: 400, message: "user already exists"]
+        }
 
         respond map, formats: ['json']
 
