@@ -31,9 +31,9 @@ class userService {
     }
 
     def loadInitialData() {
-        users["admin"] = new User("admin", "admin", "roberto", "perez", "",null,null)
-        users["abc"] = new User("abc", "abc", "juan", "perez", "", null, null)
-        users["soso123"] = new User("meme123", "admin", "roberto", "perez", "",null, null)
+        users["admin"] = new User("admin", "admin", "roberto", "perez", "", [latitude: 200, longitude: 200],null)
+        users["abc"] = new User("abc", "abc", "juan", "perez", "", [latitude: 200, longitude: 500], null)
+        users["soso123"] = new User("meme123", "admin", "roberto", "perez", "",[latitude: 200, longitude: 400], null)
     }
 
     def validateLogin(user) {
