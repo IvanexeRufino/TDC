@@ -1,9 +1,5 @@
 package tdc
 
-import com.google.gson.Gson
-import grails.converters.JSON
-import org.grails.web.json.JSONArray
-
 class userController {
 
     def userService

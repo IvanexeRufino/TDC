@@ -31,14 +31,15 @@ class userService {
         userToModify.birthday = user.birthday
         userToModify.position = user.position
         userToModify.profilePicture = user.profilePicture
+        userToModify.email = user.email
         users[user.userName] = userToModify
 
     }
 
     def loadInitialData() {
-        users["admin"] = new User("admin", "admin", "roberto", "perez", "", [latitude: 200, longitude: 200],null)
-        users["abc"] = new User("abc", "abc", "juan", "perez", "", [latitude: 200, longitude: 500], null)
-        users["soso123"] = new User("meme123", "admin", "roberto", "perez", "",[latitude: 200, longitude: 400], null)
+        users["admin"] = new User("admin", "admin", "roberto", "perez", "", [latitude: 200, longitude: 200],null, "admin@mimail.com")
+        users["abc"] = new User("abc", "abc", "juan", "perez", "", [latitude: 200, longitude: 500], null, "abc@mimail.com")
+        users["soso123"] = new User("meme123", "admin", "roberto", "perez", "",[latitude: 200, longitude: 400], null, "meme@mimail.com")
     }
 
     def validateLogin(user) {
